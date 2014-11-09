@@ -1,11 +1,9 @@
 #ifndef SQUARE_H_INCLUDED
 #define SQUARE_H_INCLUDED
-
 #include <vector>
 using namespace std;
 
 #define pii pair<int, int>
-
 #ifndef const_N_DEFINED
 #define const_N_DEFINED
 const int N = 9;
