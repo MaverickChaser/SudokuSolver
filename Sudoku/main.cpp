@@ -32,7 +32,6 @@ bool UpdateCols(vector<pair<pii, int> >&, int);
 bool UpdateSquares(vector<pair<pii, int> >&, int);
 
 void printBoard(pii cell = make_pair(-1, -1)) {
-
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (!Board[i][j]) {
@@ -115,7 +114,6 @@ void setCell(pii curCell, int curNumber) {
     cols[curCell.se].setCell(curCell.fi, curNumber);
     squares[getSquareId(curCell.first, curCell.second)].setCell(curCell.fi, curCell.se, curNumber);
     emptyCellsNumber--;
-	//printBoard(curCell);
 }
 
 void resetCell(pii curCell, int curNumber) {
@@ -140,7 +138,6 @@ pair<pii, bool> ChooseCell(vector<pii> & Cells, int curNumber, int depth) {
 	}
 
     if (depth && amo <= 2) {
-
         int cnt = 0;
         pii curCell = mp(-1, -1);
 
@@ -195,7 +192,7 @@ bool UpdateRows(vector<pair<pii, int> > & updatedCells, int depth) {
 
             if (chosen.fi != mp(-1, -1)) {
                 updatedCells.push_back(mp(chosen.fi, curNumber));
-             //   break;
+                
                 for (vector<int>::iterator it=emptyCells.begin(); it != emptyCells.end(); it++) {
                     if (*it == chosen.fi.se) {
                         emptyCells.erase(it);
@@ -224,7 +221,6 @@ bool UpdateCols(vector<pair<pii, int> > & updatedCells, int depth) {
                 int squareId = getSquareId(cell, it);
 
                 if (Can(curNumber, rows[cell], cols[it], squares[squareId])) {
-
                     amo++;
                     Cells.push_back(make_pair(cell, it));
                 }
@@ -238,7 +234,6 @@ bool UpdateCols(vector<pair<pii, int> > & updatedCells, int depth) {
 
             if (chosen.fi != mp(-1, -1)) {
                 updatedCells.push_back(mp(chosen.fi, curNumber));
-               // break;
                 for (vector<int>::iterator it=emptyCells.begin(); it != emptyCells.end(); it++) {
                     if (*it == chosen.fi.fi) {
                         emptyCells.erase(it);
@@ -267,7 +262,6 @@ bool UpdateSquares(vector<pair<pii, int> > & updatedCells, int depth) {
                 pii cell = getCell(it, emptyCells[j]);
 
                 if (Can(curNumber, rows[cell.first], cols[cell.second], squares[it])) {
-
                     amo++;
                     Cells.push_back(cell);
                 }
@@ -281,9 +275,8 @@ bool UpdateSquares(vector<pair<pii, int> > & updatedCells, int depth) {
 
             if (chosen.fi != mp(-1, -1)) {
                 updatedCells.push_back(mp(chosen.fi, curNumber));
-               // break;
+                
                 for (vector<pii>::iterator iter=emptyCells.begin(); iter != emptyCells.end(); iter++) {
-
                     if (getCell(it, *iter) == chosen.fi) {
                         emptyCells.erase(iter);
                         break;
@@ -341,7 +334,6 @@ void putRandomly() {
 }
 
 int main() {
-  //  freopen("output", "w", stdout);
     emptyCellsNumber = ReadInput(rows, cols, squares);
 
     while (emptyCellsNumber > 0) {
@@ -363,7 +355,6 @@ int main() {
         }
     }
 	cout << "Result:\n";
-	//cerr<<	UpdateAll(MAX_DEPTH, 0) << "\n";
 	printBoard();
     return 0;
 }
