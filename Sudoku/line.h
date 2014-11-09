@@ -1,6 +1,5 @@
 #ifndef LINE_H_INCLUDED
 #define LINE_H_INCLUDED
-
 #include <vector>
 using namespace std;
 
