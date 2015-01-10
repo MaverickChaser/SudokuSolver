@@ -143,7 +143,6 @@ pair<pii, bool> ChooseCell(vector<pii> & Cells, int curNumber, int depth) {
 
         for (int k = 0; k < amo && !cnt; k++) {
             setCell(Cells[k], curNumber);
-
 			bool result = UpdateAll(depth - 1, 1);
             resetCell(Cells[k], curNumber);
             if (result) {
@@ -155,7 +154,6 @@ pair<pii, bool> ChooseCell(vector<pii> & Cells, int curNumber, int depth) {
         if (cnt) {
             // Try guessing
             setCell(curCell, curNumber);
-            //printBoard();
 			return mp(curCell, 1);
         } else if (cnt == 0) {
 			return mp(mp(-1, -1), 0);
