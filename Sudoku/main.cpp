@@ -326,7 +326,6 @@ void putRandomly() {
 					} else {
 						resetCell(mp(cell, it), curNumber);
 					}
-
                 }
             }
 		}
